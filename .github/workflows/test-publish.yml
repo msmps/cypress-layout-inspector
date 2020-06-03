@@ -19,7 +19,6 @@ jobs:
                   build: npm run build
 
     publish-package:
-        name: Release
         runs-on: ubuntu-16.04
         needs: cypress-run
         if: github.ref == 'refs/heads/master'
@@ -39,5 +38,5 @@ jobs:
             - name: Release
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
               run: npx semantic-release

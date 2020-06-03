@@ -5,6 +5,14 @@
 
 <hr />
 
+[![Build Status][build-badge]][build]
+[![version][version-badge]][package]
+[![Semantic Release][semantic-badge]][semantic]
+
+[![Watch on GitHub][github-watch-badge]][github-watch]
+[![Star on GitHub][github-star-badge]][github-star]
+[![Tweet][twitter-badge]][twitter]
+
 ## Table of Contents
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -104,3 +112,15 @@ it('block-3 should be positioned left of block-4', () => {
 
 [npm]: https://www.npmjs.com/
 [node]: https://www.nodejs.org/
+[build-badge]: https://img.shields.io/github/workflow/status/msmps/cypress-layout-inspector/cypress-layout-inspector%20tests?style=flat-square
+[build]: https://github.com/msmps/cypress-layout-inspector/actions
+[version-badge]: https://img.shields.io/npm/v/cypress-layout-inspector?style=flat-square
+[package]: https://www.npmjs.com/package/cypress-layout-inspector
+[semantic-badge]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square
+[semantic]: https://github.com/semantic-release/semantic-release
+[github-watch-badge]: https://img.shields.io/github/watchers/msmps/cypress-layout-inspector.svg?style=social
+[github-watch]: https://github.com/msmps/cypress-layout-inspector/watchers
+[github-star-badge]: https://img.shields.io/github/stars/msmps/cypress-layout-inspector.svg?style=social
+[github-star]: https://github.com/msmps/cypress-layout-inspector/stargazers
+[twitter]: https://twitter.com/intent/tweet?text=Check%20out%20cypress-layout-inspector%20by%20%40msmps_%20https%3A%2F%2Fgithub.com%2Fmsmps%2Fcypress-layout-inspector%20%F0%9F%95%B5%EF%B8%8F%E2%80%8D%E2%99%82%EF%B8%8F
+[twitter-badge]: https://img.shields.io/twitter/url/https/github.com/msmps/cypress-layout-inspector.svg?style=social

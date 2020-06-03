@@ -11,6 +11,7 @@
     "test:debug": "cypress open",
     "format": "prettier {src,src/**,cypress/integration/**}/*.js --write",
     "doctoc": "npx doctoc --maxlevel 3 README.md",
+    "prepare": "npm run build",
     "prepublishOnly": "npm run doctoc",
     "postinstall": "node ./scripts/postinstall.js || exit 0"
   },

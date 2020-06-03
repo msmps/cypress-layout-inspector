@@ -1,0 +1,12 @@
+{
+    "extends": ["airbnb-base", "prettier"],
+    "plugins": ["cypress"],
+    "env": {
+        "cypress/globals": true
+    },
+    "rules": {
+        "no-underscore-dangle": "off",
+        "func-names": "warn",
+        "prefer-rest-params": "off"
+    }
+}

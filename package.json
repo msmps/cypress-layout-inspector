@@ -1,0 +1,67 @@
+{
+  "name": "cypress-layout-inspector",
+  "version": "0.0.0-semantically-released",
+  "description": "Simple utility to provide layout testing functionality to Cypress",
+  "main": "dist/index.js",
+  "scripts": {
+    "prebuild": "rimraf dist/",
+    "build": "babel src --out-dir dist",
+    "lint": "eslint src",
+    "test": "cypress run",
+    "test:debug": "cypress open",
+    "format": "prettier {src,src/**,cypress/integration/**}/*.js --write",
+    "doctoc": "npx doctoc --maxlevel 3 README.md",
+    "prepublishOnly": "npm run doctoc",
+    "postinstall": "node ./scripts/postinstall.js || exit 0"
+  },
+  "files": [
+    "dist",
+    "scripts",
+    "add-support.js"
+  ],
+  "keywords": [
+    "testing",
+    "cypress",
+    "ui",
+    "dom",
+    "functional"
+  ],
+  "author": "Matthew Simpson <hello@msmp.me> (https://msmp.me)",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "cypress": "^4.6.0",
+    "cz-conventional-changelog": "^3.2.0",
+    "eslint": "^7.1.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-cypress": "^2.10.3",
+    "eslint-plugin-import": "^2.20.2",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.7",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "eslint",
+      "prettier --write"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/msmps/cypress-layout-inspector"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

@@ -18,13 +18,15 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
--   [Installation](#installation)
--   [Usage](#usage)
--   [Assertions](#assertions)
-    -   [Alignment](#alignment)
-    -   [Dimensions](#dimensions)
-    -   [Positioning](#positioning)
-    -   [Styling](#styling)
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Assertions](#assertions)
+  - [Alignment](#alignment)
+  - [Dimensions](#dimensions)
+  - [Positioning](#positioning)
+  - [Styling](#styling)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -35,6 +37,8 @@ This module is distributed via [npm][npm] which is bundled with [node] and shoul
 ```
 npm install --save-dev cypress-layout-inspector
 ```
+
+This has been tested thoroughly with the [Cypress.io][cypress-io] E2E test runner **v3.7.0+**
 
 ## Usage
 
@@ -57,6 +61,26 @@ it('block-2 should be positioned right of block-1', () => {
 
 it('block-3 should be positioned left of block-4', () => {
     cy.get('.block-3').should('be.leftOf', '.block-4', 50);
+});
+```
+
+## Configuration
+
+To configure `cypress-layout-inspector`, use the following custom command:
+
+```javascript
+cy.configureLayoutInspector(config);
+```
+
+`cypress-layout-inspector` uses `getBoundingClientRect()` behind the scenes which returns size equal to an elements (width/height + padding + border-width) in the case that the standard box model is being used, or (width/height) only if box-sizing: border-box has been set on it.
+
+If you would like to use the standard box model but exclude padding in the total you can achieve this by doing the following:
+
+```javascript
+before(() => {
+    cy.configureLayoutInspector({
+        excludePadding: true,
+    });
 });
 ```
 
@@ -112,6 +136,7 @@ it('block-3 should be positioned left of block-4', () => {
 
 [npm]: https://www.npmjs.com/
 [node]: https://www.nodejs.org/
+[cypress-io]: https://www.cypress.io/
 [build-badge]: https://img.shields.io/github/workflow/status/msmps/cypress-layout-inspector/cypress-layout-inspector%20tests?style=flat-square
 [build]: https://github.com/msmps/cypress-layout-inspector/actions
 [version-badge]: https://img.shields.io/npm/v/cypress-layout-inspector?style=flat-square

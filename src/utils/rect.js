@@ -1,3 +1,5 @@
+import { getConfiguration } from '../configure';
+
 class Rect {
     constructor(subject) {
         let element;
@@ -24,6 +26,20 @@ class Rect {
         this.right = shape.right;
         this.width = shape.width;
         this.height = shape.height;
+
+        if (getConfiguration('excludePadding')) {
+            const computed = getComputedStyle(element);
+            this.top += parseFloat(computed.paddingTop);
+            this.left += parseFloat(computed.paddingLeft);
+            this.bottom -= parseFloat(computed.paddingBottom);
+            this.right -= parseFloat(computed.paddingRight);
+            this.width -=
+                parseFloat(computed.paddingLeft) +
+                parseFloat(computed.paddingRight);
+            this.height -=
+                parseFloat(computed.paddingTop) +
+                parseFloat(computed.paddingBottom);
+        }
     }
 }
 

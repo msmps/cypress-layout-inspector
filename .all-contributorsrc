@@ -1,0 +1,27 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "msmps",
+      "name": "Matt Simpson",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/64437301?v=4",
+      "profile": "https://github.com/msmps",
+      "contributions": [
+        "code",
+        "doc",
+        "ideas",
+        "test"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "cypress-layout-inspector",
+  "projectOwner": "msmps",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}

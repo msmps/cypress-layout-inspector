@@ -104,7 +104,7 @@ before(() => {
 
 ### Dimensions
 
-> The following width and height assertions are chain-able and can be used with the .gt, .within and .lt methods
+The following width and height assertions are chain-able and can be used with the .gt, .within and .lt methods
 
 #### `width(measure)`
 
@@ -116,14 +116,20 @@ before(() => {
 
 ### Positioning
 
-#### `rightOf(element, distance)`
+The following assertions will check an elements distance is >= 0 if no distance is set
 
-#### `leftOf(element, distance)`
+#### `rightOf(element[, distance])`
+
+#### `leftOf(element[, distance])`
+
+#### `above(element[, distance])`
+
+#### `below(element[, distance])`
 
 | argument     | type   | options | default |
 | ------------ | ------ | ------- | ------- |
 | **element**  | string | -       | -       |
-| **distance** | number | -       | `0`     |
+| **distance** | number | -       | -       |
 
 ### Styling
 

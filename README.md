@@ -1,4 +1,7 @@
 <div align="center">
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
     <h1>cypress-layout-inspector</h1>
     <img width="80px" height="80px" alt="detective" src="https://raw.githubusercontent.com/msmps/cypress-layout-inspector/master/media/detective.png" />
 </div>
@@ -155,3 +158,22 @@ The following assertions will check an elements distance is >= 0 if no distance 
 [github-star]: https://github.com/msmps/cypress-layout-inspector/stargazers
 [twitter]: https://twitter.com/intent/tweet?text=Check%20out%20cypress-layout-inspector%20by%20%40msmps_%20https%3A%2F%2Fgithub.com%2Fmsmps%2Fcypress-layout-inspector%20%F0%9F%95%B5%EF%B8%8F%E2%80%8D%E2%99%82%EF%B8%8F
 [twitter-badge]: https://img.shields.io/twitter/url/https/github.com/msmps/cypress-layout-inspector.svg?style=social
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/msmps"><img src="https://avatars1.githubusercontent.com/u/64437301?v=4" width="100px;" alt=""/><br /><sub><b>Matt Simpson</b></sub></a><br /><a href="https://github.com/msmps/cypress-layout-inspector/commits?author=msmps" title="Code">💻</a> <a href="https://github.com/msmps/cypress-layout-inspector/commits?author=msmps" title="Documentation">📖</a> <a href="#ideas-msmps" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/msmps/cypress-layout-inspector/commits?author=msmps" title="Tests">⚠️</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

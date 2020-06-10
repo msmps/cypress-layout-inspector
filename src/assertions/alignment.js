@@ -4,8 +4,8 @@ export default _chai => {
     function horizontallyAligned(element, edge = 'all') {
         const [source, target] = [new Rect(this._obj), new Rect(element)];
 
-        const topAlignDiff = Math.abs(source.top - target.top);
-        const bottomAlignDiff = Math.abs(source.bottom - target.bottom);
+        const topAlignDiff = source.top - target.top;
+        const bottomAlignDiff = -(source.bottom - target.bottom);
 
         let condition;
 
@@ -17,8 +17,7 @@ export default _chai => {
                 condition = bottomAlignDiff === 0;
                 break;
             case 'centered':
-                condition =
-                    target.top - source.top === source.bottom - target.bottom;
+                condition = topAlignDiff - bottomAlignDiff === 0;
                 break;
             case 'all':
             default:
@@ -35,8 +34,8 @@ export default _chai => {
     function verticallyAligned(element, edge = 'all') {
         const [source, target] = [new Rect(this._obj), new Rect(element)];
 
-        const leftAlignDiff = Math.abs(source.left - target.left);
-        const rightAlignDiff = Math.abs(source.right - target.right);
+        const leftAlignDiff = source.left - target.left;
+        const rightAlignDiff = -(source.right - target.right);
 
         let condition;
 
@@ -48,7 +47,7 @@ export default _chai => {
                 condition = rightAlignDiff === 0;
                 break;
             case 'centered':
-                condition = leftAlignDiff === rightAlignDiff;
+                condition = leftAlignDiff - rightAlignDiff === 0;
                 break;
             case 'all':
             default:

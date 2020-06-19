@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>cypress-layout-inspector Test Application</title>
+        <style>
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+
+            .container {
+                position: relative;
+                height: 80px;
+            }
+            .container .outer {
+                color: red;
+                border: 1px solid red;
+            }
+            .container .inner {
+                color: blue;
+                border: 1px solid blue;
+            }
+            .block {
+                padding: 5px;
+            }
+            .outer {
+                height: 50px;
+            }
+            .overflow-2.outer {
+                width: 200px;
+            }
+            .overflow-2 .inner {
+               width: 210px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <pre>no overflow 1</pre>
+        <div class="container">
+            <div class="no-overflow-1 outer">
+                <div class="block no-overflow inner">no-overflow-1-inner</div>
+            </div>
+        </div>
+
+        <pre>is overflowing vertically</pre>
+        <div class="container">
+            <div class="overflow-1 outer">
+                <div class="inner">
+                    overflow-inner-1 <br/>
+                    this content <br/>
+                    is longer <br/>   
+                    is then outer height<br/>                 
+                </div>
+            </div>
+        </div>
+
+        <pre>is overflowing horizontally</pre>
+        <div class="container">
+            <div class="overflow-2 outer">
+                <div class="inner">
+                    this overflow-inner-2 is wider then outer width <br/>                           
+                </div>
+            </div>
+        </div>
+    
+    </body>
+</html>

@@ -1,23 +1,9 @@
 import { getConfiguration } from '../configure';
+import getElement from './getElement';
 
 class Rect {
     constructor(subject) {
-        let element;
-        if (subject == null) {
-            throw new Error(
-                `Expected to find element: \`${subject}\`, but never found it.`
-            );
-        }
-
-        if (typeof subject === 'string') [element] = Cypress.$(subject);
-        if (subject.constructor.name === 'jQuery') [element] = subject;
-
-        if (element === undefined) {
-            throw new Error(
-                `Expected to find element: \`${subject}\`, but never found it.`
-            );
-        }
-
+        const element = getElement(subject);
         const shape = element.getBoundingClientRect();
 
         this.top = shape.top;

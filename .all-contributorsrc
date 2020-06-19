@@ -16,6 +16,17 @@
         "ideas",
         "test"
       ]
+    },
+    {
+      "login": "satueveliina",
+      "name": "Satu",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/526499?v=4",
+      "profile": "https://github.com/satueveliina",
+      "contributions": [
+        "code",
+        "doc",
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,

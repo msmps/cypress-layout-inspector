@@ -152,6 +152,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/msmps"><img src="https://avatars1.githubusercontent.com/u/64437301?v=4" width="100px;" alt=""/><br /><sub><b>Matt Simpson</b></sub></a><br /><a href="https://github.com/msmps/cypress-layout-inspector/commits?author=msmps" title="Code">💻</a> <a href="https://github.com/msmps/cypress-layout-inspector/commits?author=msmps" title="Documentation">📖</a> <a href="#ideas-msmps" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/msmps/cypress-layout-inspector/commits?author=msmps" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/satueveliina"><img src="https://avatars0.githubusercontent.com/u/526499?v=4" width="100px;" alt=""/><br /><sub><b>Satu</b></sub></a><br /><a href="https://github.com/msmps/cypress-layout-inspector/commits?author=satueveliina" title="Code">💻</a> <a href="https://github.com/msmps/cypress-layout-inspector/commits?author=satueveliina" title="Documentation">📖</a> <a href="#ideas-satueveliina" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 

@@ -103,6 +103,19 @@ before(() => {
 | **element** | string | -                                    | -       |
 | **edge**    | string | `'left', 'right', 'centered', 'all'` | `'all'` |
 
+#### `overflowing([, direction])`
+
+| argument         | type   | options                              | default |
+| ---------------- | ------ | -------------------------------------| ------- |
+| **direction**    | string | `'vertically', 'horizontally', 'any'`| `'any'` |
+
+
+#### `overlapping(element)`
+
+| argument    | type   | options                              | default |
+| ----------- | ------ | ------------------------------------ | ------- |
+| **element** | string | -                                    | -       |
+
 ### Dimensions
 
 The following width and height assertions are chain-able and can be used with the .gt, .within and .lt methods

@@ -11,11 +11,6 @@
                 box-sizing: border-box;
             }
 
-            .container {
-                position: relative;
-                height: 220px;
-            }
-
             .container .block:nth-child(1) {
                 color: red;
                 border: 1px solid red;
@@ -26,11 +21,35 @@
                 border: 1px solid blue;
             }
 
-            .block {
+            .container .block:nth-child(3) {
+                color: orange;
+                border: 1px solid orange;
+            }
+
+            .absolute > * {
                 position: absolute;
+            }
+
+            .absolute {
+                position: relative;
+                height: 220px;
+            }
+            .flexbox {
+                display: flex;
+            }
+
+            .grid {
+                display: grid;
+                grid-template-columns: 100px 100px 100px;
+            }
+            .block {
                 width: 100px;
                 height: 100px;
                 padding: 5px;
+            }
+
+            .horizontal-flow > * {
+                display: inline-block;
             }
 
             .no-overlap-1 {
@@ -87,40 +106,67 @@
     </head>
     <body>
         <pre>no overlap 1 and 2</pre>
-        <div class="container">
+        <div class="absolute container">
             <div class="block no-overlap-1">no-overlap-1</div>
             <div class="block no-overlap-2">no-overlap-2</div>
         </div>
 
         <pre>no overlap 3 and 4</pre>
-        <div class="container">
+        <div class="absolute container">
             <div class="block no-overlap-3">no-overlap-3</div>
             <div class="block no-overlap-4">no-overlap-4</div>
         </div>
 
         <pre>no overlap 5 and 6</pre>
-        <div class="container">
+        <div class="absolute container">
             <div class="block no-overlap-5">no-overlap-5</div>
             <div class="block no-overlap-6">no-overlap-6</div>
         </div>
 
         <pre>overlap-1 overlaps vertically with overlap-2</pre>
-        <div class="container">
+        <div class="absolute container">
             <div class="block overlap-1">overlap-1</div>
             <div class="block overlap-2">overlap-2</div>
         </div>
 
         <pre>overlap-3 overlaps horizontally with overlap-4</pre>
-        <div class="container">
+        <div class="absolute container">
             <div class="block overlap-3">overlap-3</div>
             <div class="block overlap-4">overlap-4</div>
         </div>
 
         <pre>overlap-5 overlaps horizontally and vertically with overlap-6</pre>
-        <div class="container">
+        <div class="absolute container">
             <div class="block overlap-5">overlap-5</div>
             <div class="block overlap-6">overlap-6</div>
         </div>
-    
+
+        <pre><b>DIFFERENT LAYOUTING METHODS</b></pre>
+        <pre>natural vertical flow </pre>
+        <div class="vertical-flow container">
+            <div class="block">no margin</div>
+            <div class="block">no margin</div>
+            <div class="block" style="margin-top: -1px">neg. margin</div>
+        </div>
+
+        <pre>natural horizontal flow</pre>
+        <div class="horizontal-flow container">
+            <div class="block">no margin</div><div class="block">no margin</div><div class="block" style='margin-left: -1px'>neg. margin</div>
+        </div>
+
+        <pre>flexbox</pre>
+        <div class="flexbox container" >
+            <div class="block">no margin</div>
+            <div class="block">no margin </div>
+            <div class="block" style="margin-left: -1px">neg. margin</div>
+        </div> 
+
+        <pre>grid</pre>
+        <div class="grid container" >
+            <div class="block">no margin</div>
+            <div class="block">no margin</div>
+            <div class="block" style="margin-left: -1px">neg. margin</div>
+        </div>
+
     </body>
 </html>

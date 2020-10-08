@@ -5,11 +5,11 @@
   "main": "dist/index.js",
   "scripts": {
     "prebuild": "rimraf dist/",
-    "build": "babel src --out-dir dist",
+    "build": "rollup -c",
     "lint": "eslint src",
     "test": "cypress run",
     "test:debug": "cypress open",
-    "format": "prettier {src,src/**,cypress/integration/**}/*.js --write",
+    "format": "prettier {src,src/**,cypress/integration/**}/*.{js,html} --write",
     "doctoc": "npx doctoc --maxlevel 3 README.md",
     "prepare": "npm run build",
     "prepublishOnly": "npm run doctoc",
@@ -30,12 +30,14 @@
   "author": "Matthew Simpson <hello@msmp.me> (https://msmp.me)",
   "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "cypress": "^4.6.0",
+    "@rollup/plugin-babel": "^5.2.1",
+    "@rollup/plugin-commonjs": "^15.1.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "cypress": "^5.3.0",
     "cz-conventional-changelog": "^3.2.0",
     "eslint": "^7.1.0",
     "eslint-config-airbnb-base": "^14.1.0",
@@ -45,7 +47,8 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.7",
     "prettier": "^2.0.5",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "rollup": "^2.29.0"
   },
   "husky": {
     "hooks": {

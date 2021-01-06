@@ -50,7 +50,10 @@ export default _chai => {
 
         if (distances === undefined) {
             return this.assert(
-                Object.values(differences).every(v => v >= 0),
+                source.left >= target.left &&
+                    source.right <= target.right &&
+                    source.top >= target.top &&
+                    source.bottom <= target.bottom,
                 `expected #{this} to be inside of #{exp}, but the value was #{act}`,
                 `expected #{this} not to be inside of #{exp}, but the value was #{act}`,
                 element,

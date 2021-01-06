@@ -26,4 +26,10 @@ describe('position testing commands', () => {
             .should('be.below', '.block-7')
             .should('be.below', '.block-7', 50);
     });
+
+    it('block-10 should be inside of block-9 (and by 50px top, left)', () => {
+        cy.get('.block-10')
+            .should('be.inside', '.block-9')
+            .should('be.inside', '.block-9', { top: 50, left: 50 });
+    });
 });

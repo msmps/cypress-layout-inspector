@@ -1,4 +1,4 @@
-function getElement(subject) {
+const getElement = subject => {
     let element;
     if (subject == null) {
         throw new Error(
@@ -16,6 +16,6 @@ function getElement(subject) {
     }
 
     return element;
-}
+};
 
 export default getElement;

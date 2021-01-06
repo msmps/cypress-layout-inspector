@@ -1,3 +1,4 @@
+import calculateDifferences from '../utils/differences';
 import Rect from '../utils/rect';
 
 export default _chai => {
@@ -43,8 +44,34 @@ export default _chai => {
         );
     }
 
+    function inside(element, distances) {
+        const [source, target] = [new Rect(this._obj), new Rect(element)];
+        const differences = calculateDifferences(source, target);
+
+        if (distances === undefined) {
+            return this.assert(
+                Object.values(differences).every(v => v >= 0),
+                `expected #{this} to be inside of #{exp}, but the value was #{act}`,
+                `expected #{this} not to be inside of #{exp}, but the value was #{act}`,
+                element,
+                JSON.stringify(differences)
+            );
+        }
+
+        return this.assert(
+            Object.keys(distances).every(
+                key => distances[key] === differences[key]
+            ),
+            `expected #{this} to be inside of ${element} by #{exp}, but the value was #{act}`,
+            `expected #{this} not to be inside of ${element} by #{exp}, but the value was #{act}`,
+            JSON.stringify(distances),
+            JSON.stringify(differences)
+        );
+    }
+
     _chai.Assertion.addMethod('rightOf', rightOf);
     _chai.Assertion.addMethod('leftOf', leftOf);
+    _chai.Assertion.addMethod('inside', inside);
 
     _chai.Assertion.overwriteMethod('above', _super => {
         return function (element, distance = 0) {

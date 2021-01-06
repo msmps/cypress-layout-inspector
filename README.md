@@ -18,7 +18,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [Installation](#installation)
 - [Usage](#usage)
 - [Configuration](#configuration)
@@ -105,16 +104,15 @@ before(() => {
 
 #### `overflowing([, direction])`
 
-| argument         | type   | options                              | default |
-| ---------------- | ------ | -------------------------------------| ------- |
-| **direction**    | string | `'vertically', 'horizontally', 'any'`| `'any'` |
-
+| argument      | type   | options                               | default |
+| ------------- | ------ | ------------------------------------- | ------- |
+| **direction** | string | `'vertically', 'horizontally', 'any'` | `'any'` |
 
 #### `overlapping(element)`
 
-| argument    | type   | options                              | default |
-| ----------- | ------ | ------------------------------------ | ------- |
-| **element** | string | -                                    | -       |
+| argument    | type   | options | default |
+| ----------- | ------ | ------- | ------- |
+| **element** | string | -       | -       |
 
 ### Dimensions
 
@@ -145,6 +143,13 @@ The following assertions will check an elements distance is >= 0 if no distance 
 | **element**  | string | -       | -       |
 | **distance** | number | -       | -       |
 
+#### `inside(element[, distances { top, left, bottom, right }])`
+
+| argument      | type   | options | default |
+| ------------- | ------ | ------- | ------- |
+| **element**   | string | -       | -       |
+| **distances** | object | -       | -       |
+
 ### Styling
 
 #### `style(property, value)`
@@ -153,7 +158,6 @@ The following assertions will check an elements distance is >= 0 if no distance 
 | ------------ | ------ | ------- | ------- |
 | **property** | string | -       | -       |
 | **value**    | string | -       | -       |
-
 
 ## Contributors ✨
 
@@ -171,6 +175,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

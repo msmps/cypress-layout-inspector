@@ -76,63 +76,67 @@ export default _chai => {
     _chai.Assertion.addMethod('leftOf', leftOf);
     _chai.Assertion.addMethod('inside', inside);
 
-    _chai.Assertion.overwriteMethod('above', _super => {
-        return function (element, distance = 0) {
-            if (this._obj.constructor.name === 'jQuery') {
-                const [source, target] = [
-                    new Rect(this._obj),
-                    new Rect(element),
-                ];
-                const actual = target.top - source.bottom;
+    _chai.Assertion.overwriteMethod(
+        'above',
+        _super =>
+            function (element, distance = 0) {
+                if (this._obj.constructor.name === 'jQuery') {
+                    const [source, target] = [
+                        new Rect(this._obj),
+                        new Rect(element),
+                    ];
+                    const actual = target.top - source.bottom;
 
-                if (distance === 0) {
+                    if (distance === 0) {
+                        return this.assert(
+                            actual >= 0,
+                            `expected #{this} to be above ${element}`,
+                            `expected #{this} not to be above ${element}`
+                        );
+                    }
+
                     return this.assert(
-                        actual >= 0,
-                        `expected #{this} to be above ${element}`,
-                        `expected #{this} not to be above ${element}`
+                        actual === distance,
+                        `expected #{this} to be above ${element} by #{exp}, but the value was #{act}`,
+                        `expected #{this} not to be above ${element} by #{exp}, but the value was #{act}`,
+                        distance,
+                        actual
                     );
                 }
 
-                return this.assert(
-                    actual === distance,
-                    `expected #{this} to be above ${element} by #{exp}, but the value was #{act}`,
-                    `expected #{this} not to be above ${element} by #{exp}, but the value was #{act}`,
-                    distance,
-                    actual
-                );
+                return _super.apply(this, arguments);
             }
+    );
 
-            return _super.apply(this, arguments);
-        };
-    });
+    _chai.Assertion.overwriteMethod(
+        'below',
+        _super =>
+            function (element, distance = 0) {
+                if (this._obj.constructor.name === 'jQuery') {
+                    const [source, target] = [
+                        new Rect(this._obj),
+                        new Rect(element),
+                    ];
+                    const actual = source.top - target.bottom;
 
-    _chai.Assertion.overwriteMethod('below', _super => {
-        return function (element, distance = 0) {
-            if (this._obj.constructor.name === 'jQuery') {
-                const [source, target] = [
-                    new Rect(this._obj),
-                    new Rect(element),
-                ];
-                const actual = source.top - target.bottom;
+                    if (distance === 0) {
+                        return this.assert(
+                            actual >= 0,
+                            `expected #{this} to be below ${element}`,
+                            `expected #{this} not to be below ${element}`
+                        );
+                    }
 
-                if (distance === 0) {
                     return this.assert(
-                        actual >= 0,
-                        `expected #{this} to be below ${element}`,
-                        `expected #{this} not to be below ${element}`
+                        actual === distance,
+                        `expected #{this} to be below ${element} by #{exp}, but the value was #{act}`,
+                        `expected #{this} not to be below ${element} by #{exp}, but the value was #{act}`,
+                        distance,
+                        actual
                     );
                 }
 
-                return this.assert(
-                    actual === distance,
-                    `expected #{this} to be below ${element} by #{exp}, but the value was #{act}`,
-                    `expected #{this} not to be below ${element} by #{exp}, but the value was #{act}`,
-                    distance,
-                    actual
-                );
+                return _super.apply(this, arguments);
             }
-
-            return _super.apply(this, arguments);
-        };
-    });
+    );
 };

@@ -27,6 +27,15 @@
         "doc",
         "ideas"
       ]
+    },
+    {
+      "login": "david-boydell",
+      "name": "david-boydell",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/36667923?v=4",
+      "profile": "https://github.com/david-boydell",
+      "contributions": [
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,

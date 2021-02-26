@@ -18,15 +18,15 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Configuration](#configuration)
-- [Assertions](#assertions)
-  - [Alignment](#alignment)
-  - [Dimensions](#dimensions)
-  - [Positioning](#positioning)
-  - [Styling](#styling)
-- [Contributors ✨](#contributors-)
+-   [Installation](#installation)
+-   [Usage](#usage)
+-   [Configuration](#configuration)
+-   [Assertions](#assertions)
+    -   [Alignment](#alignment)
+    -   [Dimensions](#dimensions)
+    -   [Positioning](#positioning)
+    -   [Styling](#styling)
+-   [Contributors ✨](#contributors-)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -80,6 +80,7 @@ If you would like to use the standard box model but exclude padding in the total
 before(() => {
     cy.configureLayoutInspector({
         excludePadding: true,
+        threshold: 5,
     });
 });
 ```

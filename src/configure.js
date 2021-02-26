@@ -1,5 +1,6 @@
 let config = {
     excludePadding: false,
+    threshold: 0,
 };
 
 const configure = opts => {

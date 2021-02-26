@@ -1,12 +1,13 @@
 import calculateDifferences from '../utils/differences';
 import Rect from '../utils/rect';
+import withinThreshold from '../utils/threshold';
 
 export default _chai => {
-    function rightOf(element, distance = 0) {
+    function rightOf(element, distance = undefined) {
         const [source, target] = [new Rect(this._obj), new Rect(element)];
         const actual = source.left - target.right;
 
-        if (distance === 0) {
+        if (distance === undefined) {
             return this.assert(
                 actual >= 0,
                 `expected #{this} to be right of ${element}`,
@@ -15,7 +16,7 @@ export default _chai => {
         }
 
         return this.assert(
-            actual === distance,
+            actual === distance || withinThreshold(actual, distance),
             `expected #{this} to be right of ${element} by #{exp}, but the value was #{act}`,
             `expected #{this} not to be right of ${element} by #{exp}, but the value was #{act}`,
             distance,
@@ -23,11 +24,11 @@ export default _chai => {
         );
     }
 
-    function leftOf(element, distance = 0) {
+    function leftOf(element, distance = undefined) {
         const [source, target] = [new Rect(this._obj), new Rect(element)];
         const actual = target.left - source.right;
 
-        if (distance === 0) {
+        if (distance === undefined) {
             return this.assert(
                 actual >= 0,
                 `expected #{this} to be left of ${element}`,
@@ -36,7 +37,7 @@ export default _chai => {
         }
 
         return this.assert(
-            actual === distance,
+            actual === distance || withinThreshold(actual, distance),
             `expected #{this} to be left of ${element} by #{exp}, but the value was #{act}`,
             `expected #{this} not to be left of ${element} by #{exp}, but the value was #{act}`,
             distance,
@@ -79,7 +80,7 @@ export default _chai => {
     _chai.Assertion.overwriteMethod(
         'above',
         _super =>
-            function (element, distance = 0) {
+            function (element, distance = undefined) {
                 if (this._obj.constructor.name === 'jQuery') {
                     const [source, target] = [
                         new Rect(this._obj),
@@ -87,7 +88,7 @@ export default _chai => {
                     ];
                     const actual = target.top - source.bottom;
 
-                    if (distance === 0) {
+                    if (distance === undefined) {
                         return this.assert(
                             actual >= 0,
                             `expected #{this} to be above ${element}`,
@@ -96,7 +97,8 @@ export default _chai => {
                     }
 
                     return this.assert(
-                        actual === distance,
+                        actual === distance ||
+                            withinThreshold(actual, distance),
                         `expected #{this} to be above ${element} by #{exp}, but the value was #{act}`,
                         `expected #{this} not to be above ${element} by #{exp}, but the value was #{act}`,
                         distance,
@@ -111,7 +113,7 @@ export default _chai => {
     _chai.Assertion.overwriteMethod(
         'below',
         _super =>
-            function (element, distance = 0) {
+            function (element, distance = undefined) {
                 if (this._obj.constructor.name === 'jQuery') {
                     const [source, target] = [
                         new Rect(this._obj),
@@ -119,7 +121,7 @@ export default _chai => {
                     ];
                     const actual = source.top - target.bottom;
 
-                    if (distance === 0) {
+                    if (distance === undefined) {
                         return this.assert(
                             actual >= 0,
                             `expected #{this} to be below ${element}`,
@@ -128,7 +130,8 @@ export default _chai => {
                     }
 
                     return this.assert(
-                        actual === distance,
+                        actual === distance ||
+                            withinThreshold(actual, distance),
                         `expected #{this} to be below ${element} by #{exp}, but the value was #{act}`,
                         `expected #{this} not to be below ${element} by #{exp}, but the value was #{act}`,
                         distance,

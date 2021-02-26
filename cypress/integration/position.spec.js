@@ -32,4 +32,22 @@ describe('position testing commands', () => {
             .should('be.inside', '.block-9')
             .should('be.inside', '.block-9', { top: 50, left: 50 });
     });
+
+    it('block-11 should be positioned above block-12 (and with a threshold of 2.5px)', () => {
+        cy.configureLayoutInspector({
+            threshold: 2.5,
+        });
+
+        cy.get('.block-11').should('be.above', '.block-12', 50);
+    });
+
+    it('block-11 should be positioned above block-12 should fail when threshold is below the actual value', () => {
+        cy.configureLayoutInspector({
+            threshold: 0,
+        });
+
+        cy.get('.block-11').then($el => {
+            expect(() => expect($el).to.be.above('.block-12', 50)).to.throw();
+        });
+    });
 });

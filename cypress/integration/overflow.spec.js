@@ -1,5 +1,4 @@
 describe('overflow testing commands', () => {
-    
     beforeEach(() => {
         cy.visit('cypress/fixtures/test-app/overflow.html');
     });
@@ -10,7 +9,10 @@ describe('overflow testing commands', () => {
 
     it('overflow-1 should be overflowing vertically', () => {
         cy.get('.overflow-1.outer').should('be.overflowing');
-        cy.get('.overflow-1.outer').should('not.be.overflowing', 'horizontally');
+        cy.get('.overflow-1.outer').should(
+            'not.be.overflowing',
+            'horizontally'
+        );
         cy.get('.overflow-1.outer').should('be.overflowing', 'vertically');
     });
 
@@ -19,6 +21,4 @@ describe('overflow testing commands', () => {
         cy.get('.overflow-2.outer').should('be.overflowing', 'horizontally');
         cy.get('.overflow-2.outer').should('not.be.overflowing', 'vertically');
     });
-
 });
-

@@ -44,7 +44,7 @@
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-import": "^2.22.1",
-    "husky": "^4.3.0",
+    "husky": "^5.1.2",
     "lint-staged": "^10.4.0",
     "prettier": "^2.1.2",
     "rimraf": "^3.0.2",

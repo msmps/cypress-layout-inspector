@@ -1,4 +1,4 @@
-name: cypress-layout-inspector tests
+name: CICD
 
 on:
     push:
@@ -9,7 +9,7 @@ on:
 jobs:
   test:
     name: Lint & test
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-18.04
 
     steps:
       - name: Checkout
@@ -36,7 +36,7 @@ jobs:
 
   publish-package:
     name: Publish Package to NPM
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-18.04
     needs: test
     if: github.ref == 'refs/heads/master'
     steps:

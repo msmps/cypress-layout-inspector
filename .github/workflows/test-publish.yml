@@ -34,25 +34,27 @@ jobs:
         with:
           build: npm run build
 
-    publish-package:
-        runs-on: ubuntu-16.04
-        needs: test
-        if: github.ref == 'refs/heads/master'
+  publish-package:
+    name: Publish Package to NPM
+    runs-on: ubuntu-16.04
+    needs: test
+
+    if: github.ref == 'refs/heads/master'
         steps:
-            - name: Checkout
-              uses: actions/checkout@v2
-
-            - name: Setup Node.js
-              uses: actions/setup-node@v2
-              with:
-                  node-version: "14"
-                  registry-url: https://registry.npmjs.org
-
-            - name: Install dependencies
-              run: npm ci
-
-            - name: Release
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-              run: npx semantic-release
+          - name: Checkout
+            uses: actions/checkout@v2
+          
+          - name: Setup Node.js
+            uses: actions/setup-node@v2
+            with:
+              node-version: "14"
+              registry-url: https://registry.npmjs.org
+          
+          - name: Install dependencies
+            run: npm ci
+          
+          - name: Release
+            env:
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+            run: npx semantic-release

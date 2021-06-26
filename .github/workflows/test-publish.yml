@@ -7,29 +7,45 @@ on:
     pull_request:
 
 jobs:
-    cypress-run:
-        runs-on: ubuntu-16.04
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v2
+  test:
+    name: Lint & test
+    runs-on: ubuntu-16.04
 
-            - name: Cypress.io
-              uses: cypress-io/github-action@v2
-              with:
-                  build: npm run build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+      
+      - name: Install
+        run: npm ci
+      
+      - name: Lint
+        run: npm run lint
+      
+      - name: Build
+        run: npm run build
+      
+      - name: Test
+        uses: cypress-io/github-action@v2
+        with:
+          build: npm run build
 
     publish-package:
         runs-on: ubuntu-16.04
-        needs: cypress-run
+        needs: test
         if: github.ref == 'refs/heads/master'
         steps:
             - name: Checkout
               uses: actions/checkout@v2
 
             - name: Setup Node.js
-              uses: actions/setup-node@v1
+              uses: actions/setup-node@v2
               with:
-                  node-version: 12
+                  node-version: "14"
                   registry-url: https://registry.npmjs.org
 
             - name: Install dependencies

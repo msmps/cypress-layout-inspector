@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cypress-layout-inspector test application</title>
+
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      .container .block:nth-child(1) {
+        color: red;
+        border: 1px solid red;
+      }
+
+      .container .block:nth-child(2) {
+        color: blue;
+        border: 1px solid blue;
+      }
+
+      .container .block:nth-child(3) {
+        color: orange;
+        border: 1px solid orange;
+      }
+
+      .absolute > * {
+        position: absolute;
+      }
+
+      .absolute {
+        position: relative;
+        height: 250px;
+      }
+
+      .flexbox {
+        display: flex;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 100px 100px 100px;
+      }
+
+      .block {
+        width: 100px;
+        height: 100px;
+        padding: 5px;
+      }
+
+      .horizontal-flow {
+        font-size: 0;
+        /* hack to remove space between inline elements */
+      }
+
+      .horizontal-flow > * {
+        font-size: 1rem;
+        display: inline-block;
+      }
+
+      .no-overlap-1 {
+        top: 0;
+        left: 0;
+      }
+
+      .no-overlap-2 {
+        top: 105px;
+        left: 105px;
+      }
+
+      .no-overlap-3 {
+        top: 0;
+        left: 0;
+      }
+
+      .no-overlap-4 {
+        top: 105px;
+        left: 0px;
+      }
+
+      .no-overlap-5 {
+        top: 0;
+        left: 0;
+      }
+
+      .no-overlap-6 {
+        top: 0px;
+        left: 105px;
+      }
+
+      .overlap-1 {
+        top: 0;
+        left: 0;
+      }
+
+      .overlap-2 {
+        top: 50px;
+        left: 0px;
+      }
+
+      .overlap-3 {
+        top: 0;
+        left: 0;
+      }
+
+      .overlap-4 {
+        top: 0px;
+        left: 50px;
+      }
+
+      .overlap-5 {
+        top: 0;
+        left: 0;
+      }
+
+      .overlap-6 {
+        top: 50px;
+        left: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <pre>no overlap 1 and 2</pre>
+    <div class="absolute container">
+      <div class="block no-overlap-1">no-overlap-1</div>
+      <div class="block no-overlap-2">no-overlap-2</div>
+    </div>
+
+    <pre>no overlap 3 and 4</pre>
+    <div class="absolute container">
+      <div class="block no-overlap-3">no-overlap-3</div>
+      <div class="block no-overlap-4">no-overlap-4</div>
+    </div>
+
+    <pre>no overlap 5 and 6</pre>
+    <div class="absolute container">
+      <div class="block no-overlap-5">no-overlap-5</div>
+      <div class="block no-overlap-6">no-overlap-6</div>
+    </div>
+
+    <pre>overlap-1 overlaps vertically with overlap-2</pre>
+    <div class="absolute container">
+      <div class="block overlap-1">overlap-1</div>
+      <div class="block overlap-2">overlap-2</div>
+    </div>
+
+    <pre>overlap-3 overlaps horizontally with overlap-4</pre>
+    <div class="absolute container">
+      <div class="block overlap-3">overlap-3</div>
+      <div class="block overlap-4">overlap-4</div>
+    </div>
+
+    <pre>overlap-5 overlaps horizontally and vertically with overlap-6</pre>
+    <div class="absolute container">
+      <div class="block overlap-5">overlap-5</div>
+      <div class="block overlap-6">overlap-6</div>
+    </div>
+
+    <pre><b>DIFFERENT LAYOUTING METHODS</b></pre>
+    <pre>natural vertical flow </pre>
+    <div class="vertical-flow container">
+      <div class="block">no margin</div>
+      <div class="block">no margin</div>
+      <div class="block" style="margin-top: -1px">neg. margin</div>
+    </div>
+
+    <pre>natural horizontal flow</pre>
+    <div class="horizontal-flow container">
+      <div class="block">no margin</div>
+      <div class="block">no margin</div>
+      <div class="block" style="margin-left: -1px">neg. margin</div>
+    </div>
+
+    <pre>flexbox</pre>
+    <div class="flexbox container">
+      <div class="block">no margin</div>
+      <div class="block">no margin</div>
+      <div class="block" style="margin-left: -1px">neg. margin</div>
+    </div>
+
+    <pre>grid</pre>
+    <div class="grid container">
+      <div class="block">no margin</div>
+      <div class="block">no margin</div>
+      <div class="block" style="margin-left: -1px">neg. margin</div>
+    </div>
+  </body>
+</html>

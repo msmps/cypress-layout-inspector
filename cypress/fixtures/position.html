@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cypress-layout-inspector test application</title>
+
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      .container {
+        display: flex;
+        padding: 15px;
+        border: 1px solid lightgray;
+      }
+
+      .container.column {
+        flex-direction: column;
+      }
+
+      .block {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+        border: 1px dotted blue;
+      }
+
+      .block + .block {
+        margin-left: 50px;
+        border-color: red;
+      }
+
+      .container.column .block {
+        margin: 0;
+      }
+
+      .container.column .block-6,
+      .container.column .block-8 {
+        margin-top: 50px;
+      }
+
+      .block-10 {
+        width: 100px;
+        height: 100px;
+        border-color: red;
+      }
+
+      .container.column .block-12 {
+        margin-top: 52.5px;
+      }
+    </style>
+  </head>
+  <body>
+    <pre>block-2 right of block-1</pre>
+    <div class="container">
+      <div class="block block-1">1</div>
+      <div class="block block-2">2</div>
+    </div>
+    <!--  -->
+    <pre>block-3 left of block-4</pre>
+    <div class="container">
+      <div class="block block-3">3</div>
+      <div class="block block-4">4</div>
+    </div>
+    <!--  -->
+    <pre>block-5 above block-6</pre>
+    <div class="container column">
+      <div class="block block-5">5</div>
+      <div class="block block-6">6</div>
+    </div>
+    <!--  -->
+    <pre>block-8 below block-7</pre>
+    <div class="container column">
+      <div class="block block-7">7</div>
+      <div class="block block-8">8</div>
+    </div>
+    <!--  -->
+    <pre>block-10 inside block-9</pre>
+    <div class="container column">
+      <div class="block block-9">
+        <div class="block block-10">10</div>
+      </div>
+    </div>
+    <!--  -->
+    <pre>block-11 above block-12 with threshold of 2.5px</pre>
+    <div class="container column">
+      <div class="block block-11">11</div>
+      <div class="block block-12">12</div>
+    </div>
+  </body>
+</html>

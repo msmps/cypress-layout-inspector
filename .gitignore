@@ -1,7 +1,13 @@
 node_modules
+.next
 dist
-
+*.tsbuildinfo
+package-lock.json
+.eslintcache
 .DS_Store
-
-/cypress/videos/
-/cypress/screenshots/
+demo
+yalc.lock
+store
+.npmrc
+todos.md
+.store

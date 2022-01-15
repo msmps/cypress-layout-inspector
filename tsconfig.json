@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES2019",
+    "module": "commonjs",
+    "allowJs": true,
+    "declaration": true,
+    "outDir": "./dist",
+    "strict": true,
+    "types": ["cypress"],
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  }
+}

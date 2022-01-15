@@ -1,2 +1,1 @@
-import './commands';
-import '../../add-support';
+import "../../add-support";

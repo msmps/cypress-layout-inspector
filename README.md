@@ -18,15 +18,15 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
--   [Installation](#installation)
--   [Usage](#usage)
--   [Configuration](#configuration)
--   [Assertions](#assertions)
-    -   [Alignment](#alignment)
-    -   [Dimensions](#dimensions)
-    -   [Positioning](#positioning)
-    -   [Styling](#styling)
--   [Contributors ✨](#contributors-)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Assertions](#assertions)
+  - [Alignment](#alignment)
+  - [Dimensions](#dimensions)
+  - [Positioning](#positioning)
+  - [Styling](#styling)
+- [Contributors ✨](#contributors-)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -38,7 +38,7 @@ This module is distributed via [npm][npm] which is bundled with [node] and shoul
 npm install --save-dev cypress-layout-inspector
 ```
 
-This has been tested thoroughly with the [Cypress.io][cypress-io] E2E test runner **v3.7.0+**
+This has been tested thoroughly with the [Cypress.io][cypress-io] E2E test runner **v4.0.0+**
 
 ## Usage
 
@@ -47,7 +47,7 @@ This has been tested thoroughly with the [Cypress.io][cypress-io] E2E test runne
 Add this line to your project's `cypress/support/commands.js`:
 
 ```javascript
-import 'cypress-layout-inspector/add-support';
+import "cypress-layout-inspector/add-support";
 ```
 
 You can now use all of `cypress-layout-inspector`'s assertions.
@@ -55,12 +55,12 @@ You can now use all of `cypress-layout-inspector`'s assertions.
 To show some examples (from [cypress/integration/position.spec.js](cypress/integration/position.spec.js)):
 
 ```javascript
-it('block-2 should be positioned right of block-1', () => {
-    cy.get('.block-2').should('be.rightOf', '.block-1', 50);
+it("block-2 should be positioned right of block-1", () => {
+  cy.get(".block-2").should("be.rightOf", ".block-1", 50);
 });
 
-it('block-3 should be positioned left of block-4', () => {
-    cy.get('.block-3').should('be.leftOf', '.block-4', 50);
+it("block-3 should be positioned left of block-4", () => {
+  cy.get(".block-3").should("be.leftOf", ".block-4", 50);
 });
 ```
 
@@ -78,10 +78,10 @@ If you would like to use the standard box model but exclude padding in the total
 
 ```javascript
 before(() => {
-    cy.configureLayoutInspector({
-        excludePadding: true,
-        threshold: 5,
-    });
+  cy.configureLayoutInspector({
+    excludePadding: true,
+    threshold: 5,
+  });
 });
 ```
 
@@ -169,7 +169,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/msmps"><img src="https://avatars1.githubusercontent.com/u/64437301?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Matt Simpson</b></sub></a><br /><a href="https://github.com/msmps/cypress-layout-inspector/commits?author=msmps" title="Code">💻</a> <a href="https://github.com/msmps/cypress-layout-inspector/commits?author=msmps" title="Documentation">📖</a> <a href="#ideas-msmps" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/msmps/cypress-layout-inspector/commits?author=msmps" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/msmps"><img src="https://avatars1.githubusercontent.com/u/7691252?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Matt Simpson</b></sub></a><br /><a href="https://github.com/msmps/cypress-layout-inspector/commits?author=msmps" title="Code">💻</a> <a href="https://github.com/msmps/cypress-layout-inspector/commits?author=msmps" title="Documentation">📖</a> <a href="#ideas-msmps" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/msmps/cypress-layout-inspector/commits?author=msmps" title="Tests">⚠️</a></td>
     <td align="center"><a href="https://github.com/satueveliina"><img src="https://avatars0.githubusercontent.com/u/526499?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Satu</b></sub></a><br /><a href="https://github.com/msmps/cypress-layout-inspector/commits?author=satueveliina" title="Code">💻</a> <a href="https://github.com/msmps/cypress-layout-inspector/commits?author=satueveliina" title="Documentation">📖</a> <a href="#ideas-satueveliina" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/david-boydell"><img src="https://avatars3.githubusercontent.com/u/36667923?v=4?s=100" width="100px;" alt=""/><br /><sub><b>david-boydell</b></sub></a><br /><a href="#ideas-david-boydell" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>

@@ -131,7 +131,7 @@ const positionAssertions: Chai.ChaiPlugin = ({ Assertion }, utils) => {
       }
   );
 
-  Assertion.addMethod("inside", function (element, distances) {
+  Assertion.addMethod("inside", function (element, distances: Distances) {
     const [source, target] = [
       getElementProperties(this._obj),
       getElementProperties(element),
@@ -150,17 +150,21 @@ const positionAssertions: Chai.ChaiPlugin = ({ Assertion }, utils) => {
           source.right <= target.right &&
           source.top >= target.top &&
           source.bottom <= target.bottom,
-        `expected #{this} to be inside of #{exp}, but the value was #{act}`,
-        `expected #{this} not to be inside of #{exp}, but the value was #{act}`,
-        element,
+        `expected #{this} to be inside of ${element}, but the value was #{act}`,
+        `expected #{this} not to be inside of ${element}, but the value was #{act}`,
+        "",
         utils.inspect(differences)
       );
     }
 
+    const condition = Object.keys(distances).every((key) => {
+      const distance = distances[key as keyof Distances];
+      const actual = differences[key as keyof Distances];
+      return isWithinThreshold(actual, distance);
+    });
+
     return this.assert(
-      Object.keys(distances).every(
-        (key) => distances[key] === differences[key as keyof Distances]
-      ),
+      condition,
       `expected #{this} to be inside of ${element} by #{exp}, but the value was #{act}`,
       `expected #{this} not to be inside of ${element} by #{exp}, but the value was #{act}`,
       utils.inspect(distances),

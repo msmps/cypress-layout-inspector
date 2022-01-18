@@ -6,6 +6,7 @@
 <hr />
 
 [![Build Status][build-badge]][build]
+[![Downloads per month][downloads-badge]][package]
 [![version][version-badge]][package]
 [![Semantic Release][semantic-badge]][semantic]
 
@@ -189,6 +190,7 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 [build]: https://github.com/msmps/cypress-layout-inspector/actions
 [version-badge]: https://img.shields.io/npm/v/cypress-layout-inspector?style=flat-square
 [package]: https://www.npmjs.com/package/cypress-layout-inspector
+[downloads-badge]: https://img.shields.io/npm/dm/cypress-layout-inspector?style=flat-square
 [semantic-badge]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square
 [semantic]: https://github.com/semantic-release/semantic-release
 [github-watch-badge]: https://img.shields.io/github/watchers/msmps/cypress-layout-inspector.svg?style=social

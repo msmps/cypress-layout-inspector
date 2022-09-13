@@ -45,7 +45,7 @@ This has been tested thoroughly with the [Cypress.io][cypress-io] E2E test runne
 
 `cypress-layout-inspector` extends the `chai` assertion library.
 
-Add this line to your project's `cypress/support/commands.js`:
+Add this line to your project's `cypress/support/e2e.js`:
 
 ```javascript
 import "cypress-layout-inspector/add-support";
@@ -53,7 +53,7 @@ import "cypress-layout-inspector/add-support";
 
 You can now use all of `cypress-layout-inspector`'s assertions.
 
-To show some examples (from [cypress/integration/position.spec.js](cypress/integration/position.spec.js)):
+To show some examples (from [cypress/e2e/position.spec.js](cypress/e2e/position.spec.js)):
 
 ```javascript
 it("block-2 should be positioned right of block-1", () => {
